@@ -151,6 +151,7 @@ class ExpressionParser(object):
         # handle DayOfWeekStartIndexZero option where SUN=1 rather than SUN=0
         if self._options.day_of_week_start_index_zero is False:
             expression_parts[5] = self.decrease_days_of_week(expression_parts[5])
+        # "7" also means Sunday so we will convert to "0" to normalize it
         elif expression_parts[5] == "7":
             expression_parts[5] = "0"
 
